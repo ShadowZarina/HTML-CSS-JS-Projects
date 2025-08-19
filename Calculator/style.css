@@ -16,8 +16,13 @@ button {
   
 }
 
-display {
+#display {
   background-color: gray;
   border-radius: 20px;
   width: 90%;
+}
+
+.colored {
+  background-color: blue;
+  color: white;
 }
