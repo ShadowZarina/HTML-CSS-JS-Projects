@@ -6,23 +6,136 @@
 }
 
 body {
-  margin: 0 auto;
+  min-height: 100vh; 
+  background-image: linear-gradient(135deg, #F7D9D7 10%, #C3DEB6 90%);   
+      
+  text-align: center;
+    
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+.calculator-container {
+  gap: 10px; 
+    
+  height: 550px;
+  width: 375px; 
+    
+  background-color: #FAF9F0;
+  border-radius: 25px;
+    
+  margin: auto; 
+  padding: 15px; 
+}
+  
+
+.button-row {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.button-row:first-child {
+    grid-template-rows: 1fr 1fr 2fr;
+    background-color: #E6C1D2;
+}
+
+.button-row:nth-child(2) {
+  background-color: #F7D9D7;
+}
+
+.button-row:nth-child(3) {
+  background-color: #FAE7E3;
+}
+
+.button-row:nth-child(4) {
+  background-color: #C3DEB6;
+}
+
+.button-row:last-child {
+    background-color: #9BCCB5;
 }
 
 button {
   color: white;
-  background-color: gray;
   border-radius: 50%;
-  
+  cursor: pointer
 }
 
 #display {
-  background-color: gray;
+  background-color: #F5F4CE;
   border-radius: 20px;
   width: 90%;
+  grid-row: 1fr;
 }
 
-.colored {
-  background-color: blue;
-  color: white;
-}
+
+.number-on-screen {
+ font-size: 60px; 
+        text-align: right;
+        color: white;
+        
+        height: 75px; 
+        width: 96%; /* need to set width, otherwise will spill */
+        
+  
+        background-color: black;
+        border-radius: 10px;
+        border: none;  /* change red to check */ 
+    
+        
+      }
+  
+  
+  
+
+  
+    .pad-button {
+      border-radius: 100px; /* rounding the buttons */ 
+      
+      font-size: 40px; 
+      color: #e6e6e6; 
+      background-color: #3c4043; 
+      
+      cursor: pointer; /* converts cursor to hand when on the button */
+      
+    }
+    
+      .pad-button:active,
+      .pad-button:hover {
+        color: white;
+        background-color: #242729; /* darken background, highlight text - https://www.w3schools.com/colors/colors_picker.asp */ 
+     
+        cursor: pointer; /* converts cursor to hand when on the button */
+  
+        transition: all .25s;
+        transition-timing-function: ease-in;
+        }
+      
+  
+    .pad-button-color {
+      border-radius: 100px; /* rounding the buttons */ 
+      
+      font-size: 40px; 
+      color: #e6e6e6; 
+      background-color: MediumSeaGreen; 
+      
+      cursor: pointer; /* converts cursor to hand when on the button */
+      
+    }
+  
+      .pad-button-color:active,
+      .pad-button-color:hover {
+        color: white; 
+        background-color: #20603d; /* darken background, highlight text - https://www.w3schools.com/colors/colors_picker.asp */ 
+        
+        transition: all .25s;
+        transition-timing-function: ease-in;
+  
+      }
+  
+      #pad-button-equal-sign {
+        grid-column: 4; 
+      }
+
