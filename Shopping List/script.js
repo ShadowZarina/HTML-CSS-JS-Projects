@@ -73,7 +73,19 @@ span.textContent = "Delete";
 
 list.appendChild("listItem");
 
-WebGL2RenderingContext()
+
+ADD LIST BUTTON
+- If no input, do not go through 
+- Create new list template below
+- H1 name should change to inputted value (text content)
+= may need to assign class to input & rename
+- (CSS) align list below, margin as 0 auto;
+
+ADD ITEM BUTTON
+- create new li element
+- change text content to input
+- add delete button to side of name
+
 
 Create a function that will run in response to the button being clicked.
 Inside the function body, start off by storing the current value of the input element in a variable.
