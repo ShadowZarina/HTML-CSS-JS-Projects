@@ -5,7 +5,24 @@ const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
 const addItemButton = document.querySelector(".add-item-button");
 
-button.addEventListener("click", function() {
+addListButton.addEventListener("click", function() {
+    const inputValue = inputField.value;
+
+    // Check if the input value is not empty
+    if (inputValue.trim() !== '') {
+        const newListItem = document.createElement('li');
+
+        newListItem.textContent = inputValue;
+
+        // Append the new list item to the unordered list
+        myList.appendChild(newListItem);
+
+        // Clear the input field
+        inputField.value = '';
+    input.textContent = "";
+});
+
+addItemButton.addEventListener("click", function() {
     const inputValue = inputField.value;
 
     // Check if the input value is not empty
@@ -29,6 +46,7 @@ button.addEventListener("click", function() {
     </template>
 
 const deleteItemButton = document.createElement("button")
+ deleteItemButton.classList.add('.delete-item-button');
 
 button.addEventListener("click", function() {
     const inputValue = inputField.value;
