@@ -2,7 +2,8 @@ const list = document.querySelectorAll("ul");
 const listItem = document.querySelectorAll("li");
 const input = document.querySelector("input");
 const title = document.querySelector("h3");
-const button = document.querySelector("button");
+const addListButton = document.querySelector(".add-list-button");
+const addItemButton = document.querySelector(".add-item-button");
 
 button.addEventListener("click", function() {
     const inputValue = inputField.value;
