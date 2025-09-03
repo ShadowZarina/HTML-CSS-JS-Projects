@@ -5,6 +5,10 @@ const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
 const addItemButton = document.querySelector(".add-item-button");
 
+const template = document.getElementById("list-template");
+let clone = template.content.cloneNode(true);
+
+/*
 addListButton.addEventListener("click", function() {
     const inputValue = inputField.value;
 
@@ -21,6 +25,7 @@ addListButton.addEventListener("click", function() {
         inputField.value = '';
     input.textContent = "";
 });
+*/
 
 addItemButton.addEventListener("click", function() {
     const inputValue = inputField.value;
@@ -40,10 +45,26 @@ addItemButton.addEventListener("click", function() {
 });
 
 
+addListButton.addEventListener("click", function() {
+    const inputValue = inputField.value;
+
+    // Check if the input value is not empty
+    if (inputValue.trim() !== '') {
+        alert("Please enter a name for the list.");
+
+    clone.querySelector(".list-name").textContent = userInputValue;
+    document.getElementById("listsContainer").appendChild(clone);
+
+});
+
+
+/*
 <template id="list-item-template">
       <li class="list-item"></li>
       <button class="delete-item">x</button>
-    </template>
+</template>
+*/
+
 
 const deleteItemButton = document.createElement("button")
  deleteItemButton.classList.add('.delete-item-button');
