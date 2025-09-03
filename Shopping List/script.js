@@ -52,18 +52,10 @@ addListButton.addEventListener("click", function() {
     if (inputValue.trim() !== '') {
         alert("Please enter a name for the list.");
 
-    clone.querySelector(".list-name").textContent = userInputValue;
-    document.getElementById("listsContainer").appendChild(clone);
+    clone.querySelector(".list-category").textContent = userInputValue;
+    document.getElementById("container").appendChild(clone);
 
 });
-
-
-/*
-<template id="list-item-template">
-      <li class="list-item"></li>
-      <button class="delete-item">x</button>
-</template>
-*/
 
 
 const deleteItemButton = document.createElement("button")
