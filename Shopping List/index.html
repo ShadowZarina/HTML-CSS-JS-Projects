@@ -10,21 +10,25 @@
 
     <h1>My Shopping List</h1>
 
-    <div class="add-list">
-      <label for="item">Enter a new list:</label>
-      <input type="text" id="new-list" placeholder="Enter a list name..." />
-      <button class="add-list-button">Add List</button>
-    </div>
-
-    <template id="list-template">
-      <div class="list">
-        <h3 class="list-category"></h3>>
-        <input type="text" id="new-item" placeholder="Enter an item..." />
-        <button class="add-item-button">Add Item</button>
-        <ul></ul>
+    <div id="container">
+      
+      <div class="add-list">
+        <label for="item">Enter a new list:</label>
+        <input type="text" id="new-list" placeholder="Enter a list name..." />
+        <button class="add-list-button">Add List</button>
       </div>
-    </template>
+  
+      <template id="list-template">
+        <div class="list">
+          <h3 class="list-category"></h3>>
+          <input type="text" id="new-item" placeholder="Enter an item..." />
+          <button class="add-item-button">Add Item</button>
+          <ul></ul>
+        </div>
+      </template>
 
+    </div>
+      
     <script src="script.js"></script>
     
   </body>
