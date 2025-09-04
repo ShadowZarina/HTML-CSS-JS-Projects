@@ -305,4 +305,13 @@ function formatTime(min, sec) {
     return `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
 }
 
-// ... other functions and event listeners for buttons
+function startTime() {
+    clearInterval(timer);
+}
+
+function stopTime() {
+  // Switch between playing and pausing
+  // depending on the current state
+  if (!isPlaying) playTrack();
+  else pauseTrack();
+}
