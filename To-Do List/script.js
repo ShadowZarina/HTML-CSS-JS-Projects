@@ -287,6 +287,35 @@ let minutes = 25; // Initial work time
 let seconds = 0;
 let isPaused = false;
 
+
+mySelect.addEventListener('change', function() {
+    const selectedTime = this.value;
+    // FIND WAY TO INPUT & SELECT CUSTOM TIME. HAVE IT SAVED TO OPTIONS LIST
+    switch (selectedTime) {
+        case '15':
+            timerDisplay.innerHTML = '<h3>15:00</h3>';
+            break;
+        case '20':
+            timerDisplay.innerHTML = '<h3>15:00</h3>';
+            break;
+        case '25':
+            timerDisplay.innerHTML = '<h3>15:00</h3>';
+            break;
+        case '30':
+            timerDisplay.innerHTML = '<h3>15:00</h3>';
+            break;
+        case '45':
+            timerDisplay.innerHTML = '<h3>15:00</h3>';
+            break;
+        case '50':
+            timerDisplay.innerHTML = '<h3>15:00</h3>';
+            break;
+        default:
+            displayArea.innerHTML = 'Please select an option to see details.';
+            }
+        });
+    </script>
+
 function editTimer() {
     // custom timer option
 }
