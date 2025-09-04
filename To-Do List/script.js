@@ -258,3 +258,11 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
+
+// MAKE THIS START UPON PRESSING A BUTTON, NOT AUTOMATICALLY
+// Load the first track in the tracklist
+startPlaylist.addEventListener('click', function() {
+    // Code to execute when the button is clicked
+    loadTrack(track_index);
+    alert('Button clicked!');
+});
