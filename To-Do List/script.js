@@ -274,17 +274,29 @@ startPlaylist.addEventListener('click', function() {
 // Make this timer have automatic starts and breaks 
 // If break starts, play ping sound
 
+const timeSelect = document.getElementById('time-select');
+const timeOption = document.querySelectorAll('.time-option');
+const timerDisplay = document.getElementById('timer-display');
+
+    mySelect.addEventListener('change', function() {
+      // Code to handle the change event
+    });
+
 let timer;
 let minutes = 25; // Initial work time
 let seconds = 0;
 let isPaused = false;
 
+function editTimer() {
+    // custom timer option
+}
+
 function startTimer() {
     timer = setInterval(updateTimer, 1000);
+    // MAKE THIS CHANGE BASED ON SELECTED OPTION
 }
 
 function updateTimer() {
-    const timerDisplay = document.getElementById('timer-display');
     timerDisplay.textContent = formatTime(minutes, seconds);
 
     if (minutes === 0 && seconds === 0) {
@@ -303,10 +315,6 @@ function updateTimer() {
 
 function formatTime(min, sec) {
     return `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
-}
-
-function startTime() {
-    clearInterval(timer);
 }
 
 function stopTime() {
