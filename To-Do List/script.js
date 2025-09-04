@@ -66,7 +66,9 @@ function newElement() {
 }
 
 
+
 // MUSIC PLAYER
+
 
 let now_playing = document.querySelector(".now-playing");
 let track_art = document.querySelector(".track-art");
@@ -266,3 +268,41 @@ startPlaylist.addEventListener('click', function() {
     loadTrack(track_index);
     alert('Button clicked!');
 });
+
+
+// POMODORO TIMER
+// Make this timer have automatic starts and breaks 
+// If break starts, play ping sound
+
+let timer;
+let minutes = 25; // Initial work time
+let seconds = 0;
+let isPaused = false;
+
+function startTimer() {
+    timer = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const timerDisplay = document.getElementById('timer-display');
+    timerDisplay.textContent = formatTime(minutes, seconds);
+
+    if (minutes === 0 && seconds === 0) {
+        clearInterval(timer);
+        alert('Time for a break!');
+        // Logic to switch to break time or reset
+    } else if (!isPaused) {
+        if (seconds > 0) {
+            seconds--;
+        } else {
+            seconds = 59;
+            minutes--;
+        }
+    }
+}
+
+function formatTime(min, sec) {
+    return `${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+}
+
+// ... other functions and event listeners for buttons
