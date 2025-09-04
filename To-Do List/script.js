@@ -275,7 +275,7 @@ startPlaylist.addEventListener('click', function() {
 // If break starts, play ping sound
 
 const timeSelect = document.getElementById('time-select');
-const timeOption = document.querySelectorAll('.time-option');
+const timeChoice = document.querySelectorAll('.time-choice');
 const timerDisplay = document.getElementById('timer-display');
 
     mySelect.addEventListener('change', function() {
