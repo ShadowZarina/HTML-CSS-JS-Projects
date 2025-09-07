@@ -1,5 +1,4 @@
 const list = document.querySelectorAll("ul");
-const listItem = document.querySelectorAll("li");
 const input = document.querySelector("input");
 const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
@@ -28,25 +27,7 @@ addListButton.addEventListener("click", function() {
 
 // DELETE ITEM BUTTON
 
-const deleteItemButton = document.createElement("button")
- deleteItemButton.classList.add('.delete-item-button');
 
-button.addEventListener("click", function() {
-    const inputValue = inputField.value;
-
-    // Check if the input value is not empty
-    if (inputValue.trim() !== '') {
-        const newListItem = document.createElement('li');
-
-        newListItem.textContent = inputValue;
-
-        // Append the new list item to the unordered list
-        myList.appendChild(newListItem);
-
-        // Clear the input field
-        inputField.value = '';
-    input.textContent = "";
-});
 
 /*
 SPECIFIC LIST HTML CONTENT
@@ -76,6 +57,11 @@ addItemButton.addEventListener("click", function() {
         // Clear the input field
         inputField.value = '';
     input.textContent = "";
+
+    const listItem = document.querySelectorAll("li");
+    listItem.classList.add('.list-item');
+    const deleteItemButton = document.createElement("button");
+     deleteItemButton.classList.add('.delete-item-button');
 });
 
 input.textContent = "";
