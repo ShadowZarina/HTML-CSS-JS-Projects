@@ -5,55 +5,28 @@ const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
 const addItemButton = document.querySelector(".add-item-button");
 
-/*
-addListButton.addEventListener("click", function() {
-    const inputValue = inputField.value;
-
-    // Check if the input value is not empty
-    if (inputValue.trim() !== '') {
-        const newListItem = document.createElement('li');
-
-        newListItem.textContent = inputValue;
-
-        // Append the new list item to the unordered list
-        myList.appendChild(newListItem);
-
-        // Clear the input field
-        inputField.value = '';
-    input.textContent = "";
-});
-*/
-
-addItemButton.addEventListener("click", function() {
-    const inputValue = inputField.value;
-
-    // Check if the input value is not empty
-    if (inputValue.trim() !== '') {
-        const newListItem = document.createElement('li');
-
-        newListItem.textContent = inputValue;
-
-        // Append the new list item to the unordered list
-        myList.appendChild(newListItem);
-
-        // Clear the input field
-        inputField.value = '';
-    input.textContent = "";
-});
-
+// ADD LIST BUTTON + CLONE TEMPLATE
 
 addListButton.addEventListener("click", function() {
     const inputValue = inputField.value;
+    const template = document.getElementById("itemTemplate");
+  const clone = template.content.cloneNode(true);
 
     // Check if the input value is not empty
     if (inputValue.trim() !== '') {
         alert("Please enter a name for the list.");
-
+    
     clone.querySelector(".list-category").textContent = userInputValue;
     document.getElementById("container").appendChild(clone);
 
 });
 
+
+// DELETE LIST BUTTON
+
+
+
+// DELETE ITEM BUTTON
 
 const deleteItemButton = document.createElement("button")
  deleteItemButton.classList.add('.delete-item-button');
@@ -75,17 +48,6 @@ button.addEventListener("click", function() {
     input.textContent = "";
 });
 
-document.getElementById("addBtn").addEventListener("click", function() {
-  // Get the template
-  const template = document.getElementById("itemTemplate");
-
-  // Clone its content (true = deep copy, includes child nodes)
-  const clone = template.content.cloneNode(true);
-
-  // Append to container
-  document.getElementById("container").appendChild(clone);
-});
-
 /*
 SPECIFIC LIST HTML CONTENT
 
@@ -96,6 +58,25 @@ SPECIFIC LIST HTML CONTENT
     <ul></ul>
 </div>
 */
+
+// ADD ITEM TO LIST BUTTON 
+
+addItemButton.addEventListener("click", function() {
+    const inputValue = inputField.value;
+
+    // Check if the input value is not empty
+    if (inputValue.trim() !== '') {
+        const newListItem = document.createElement('li');
+
+        newListItem.textContent = inputValue;
+
+        // Append the new list item to the unordered list
+        myList.appendChild(newListItem);
+
+        // Clear the input field
+        inputField.value = '';
+    input.textContent = "";
+});
 
 input.textContent = "";
 span.textContent = "Delete";
