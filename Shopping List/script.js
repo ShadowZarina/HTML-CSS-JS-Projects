@@ -86,8 +86,16 @@ document.getElementById("addBtn").addEventListener("click", function() {
   document.getElementById("container").appendChild(clone);
 });
 
-list.appendChild(h3);
-list.appendChild(button);
+/*
+SPECIFIC LIST HTML CONTENT
+
+<div class="list">
+    <h3 class="list-category"></h3>>
+    <input type="text" id="new-item" placeholder="Enter an item..." />
+    <button class="add-item-button">Add Item</button>
+    <ul></ul>
+</div>
+*/
 
 input.textContent = "";
 span.textContent = "Delete";
