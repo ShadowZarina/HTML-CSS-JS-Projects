@@ -5,9 +5,6 @@ const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
 const addItemButton = document.querySelector(".add-item-button");
 
-const template = document.getElementById("list-template");
-let clone = template.content.cloneNode(true);
-
 /*
 addListButton.addEventListener("click", function() {
     const inputValue = inputField.value;
@@ -76,6 +73,17 @@ button.addEventListener("click", function() {
         // Clear the input field
         inputField.value = '';
     input.textContent = "";
+});
+
+document.getElementById("addBtn").addEventListener("click", function() {
+  // Get the template
+  const template = document.getElementById("itemTemplate");
+
+  // Clone its content (true = deep copy, includes child nodes)
+  const clone = template.content.cloneNode(true);
+
+  // Append to container
+  document.getElementById("container").appendChild(clone);
 });
 
 list.appendChild(h3);
