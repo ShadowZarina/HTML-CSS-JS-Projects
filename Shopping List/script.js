@@ -1,4 +1,5 @@
 const list = document.querySelectorAll("ul");
+const list-item = document.querySelectorAll("li"); // check if correct
 const input = document.querySelector("input");
 const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
@@ -31,7 +32,10 @@ deleteListButton.addEventListener('click', () => {
 
 
 // DELETE ITEM BUTTON
-
+deleteItemButton.addEventListener('click', () => {
+    list-item.remove(); // make sure this targets only ONE SPECIFIC list
+    alert("Div removed!"); // or innerText to put this on HTML? create a place to show this though
+});
 
 
 /*
