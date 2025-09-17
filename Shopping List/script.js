@@ -3,13 +3,15 @@ const input = document.querySelector("input");
 const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
 const addItemButton = document.querySelector(".add-item-button");
+const deleteListButton = document.querySelector(".delete-list-button");
+const deleteItemButton = document.querySelector(".delete-item-button");
 
 // ADD LIST BUTTON + CLONE TEMPLATE
 
 addListButton.addEventListener("click", function() {
     const inputValue = inputField.value;
     const template = document.getElementById("itemTemplate");
-  const clone = template.content.cloneNode(true);
+    const clone = template.content.cloneNode(true);
 
     // Check if the input value is not empty
     if (inputValue.trim() !== '') {
