@@ -61,7 +61,7 @@ addItemButton.addEventListener("click", function() {
         newListItem.textContent = inputValue;
 
         // Append the new list item to the unordered list
-        myList.appendChild(newListItem);
+        list[].appendChild(newListItem); // use indices to target specific list?
 
         // Clear the input field
         inputField.value = '';
