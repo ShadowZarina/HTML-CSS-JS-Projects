@@ -1,5 +1,5 @@
 const list = document.querySelectorAll("ul");
-const list-item = document.querySelectorAll("li"); // check if correct
+const listItem = document.querySelectorAll("li"); // check if correct
 const input = document.querySelector("input");
 const title = document.querySelector("h3");
 const addListButton = document.querySelector(".add-list-button");
@@ -67,9 +67,9 @@ addItemButton.addEventListener("click", function() {
         inputField.value = '';
     input.textContent = "";
 
-    const listItem = document.querySelectorAll("li");
+    const listItem = document.querySelectorAll("li"); // can const be declared multiple times? already declared up btw
     listItem.classList.add('.list-item');
-    const deleteItemButton = document.createElement("button");
+    const deleteItemButton = document.createElement("button"); // can const be declared multiple times? already declared up btw
      deleteItemButton.classList.add('.delete-item-button');
 });
 
