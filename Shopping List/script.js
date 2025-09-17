@@ -24,7 +24,10 @@ addListButton.addEventListener("click", function() {
 
 
 // DELETE LIST BUTTON
-
+deleteListButton.addEventListener('click', () => {
+    list.remove(); // make sure this targets only ONE SPECIFIC list
+    alert("Div removed!"); // or innerText to put this on HTML? create a place to show this though
+});
 
 
 // DELETE ITEM BUTTON
