@@ -4,7 +4,7 @@ const textArray = [
             "Sharing your code with the world!",
             "Creating another repository!",
             "Pushing a new commit!",
-            "Generating a fresh experience!"
+            "Generating a fresh experience for you!"
         ];
         let currentIndex = 0;
 
