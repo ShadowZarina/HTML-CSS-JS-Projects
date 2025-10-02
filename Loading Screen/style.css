@@ -17,3 +17,11 @@ body {
   font-weight: bold;  
   text-align: center;
 }
+
+.loading__author {  
+  font-weight: normal;  
+  font-size: 0.9rem;  
+  color: rgba(189,189,189 ,1);  
+  margin: 0.6rem 0 2rem 0;  
+  display: block;
+}
