@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <video muted loop id="video-background">
+      <source src="assets/background.mp4" type="video/mp4">
+    </video>
 
   <main>
     <div class="container>
@@ -43,6 +46,7 @@
               </div>
               <div class="next-track" onclick="nextTrack()">
                 <i class="fa fa-step-forward fa-2x"></i>
+                <audio id="audio" src="assets/music.mp3" loop hidden></audio>
               </div>
             </div>
         
@@ -56,6 +60,7 @@
         
             <!-- Define the section for displaying the volume slider-->
             <div class="slider_container">
+                <button id="music">Play Music</button>
               <i class="fa fa-volume-down"></i>
               <input type="range" min="1" max="100"
                 value="99" class="volume_slider" onchange="setVolume()">
@@ -78,8 +83,10 @@
                         <option class="time-choice" value="50">60:00</option>
                     </select>
                 </div>
-                <button id="time-start">Start</button>
+                <button id="time-start" onclick="saveValue()">Start</button>
                 <button id="time-stop">Stop</button>
+                <button id="time-reset">Reset</button>
+    
             </div>
         </div>
     </div>
