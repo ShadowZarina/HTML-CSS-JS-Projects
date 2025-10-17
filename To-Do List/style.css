@@ -153,13 +153,69 @@ input {
   font-size: 1.5rem;
 }
 
-/* Using flex with the row direction to
-   align items in a horizontal direction */
+/* SETTINGS */
+
+#settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 5px 0;
+  flex-shrink: 0;
+}
+
+
+/* BUTTONS */
+
 .buttons {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+
+button {
+  padding: 6px 12px;
+  margin-top: 8px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  color: rgb(230, 213, 210);
+  cursor: pointer;
+}
+button#start {
+  background-color: rgba(75,120,187,0.8);
+}
+button#stop {
+  background-color: rgba(160,99,73,0.8);
+}
+button#reset {
+  background-color: rgba(211,178,83,0.8);
+}
+button#music {
+  background-color: rgba(83, 211, 158, 0.8);
+}
+button#start:hover{
+  background-color: rgba(75,120,187,1);
+  transform: scale(1.05);
+  transition: 0.1s ease-in;
+}
+button#stop:hover{
+  background-color: rgba(160,99,73,1);
+  transform: scale(1.05);
+  transition: 0.1s ease-in;
+}
+button#reset:hover{
+  background-color: rgba(211,178,83,1);
+  transform: scale(1.05);
+  transition: 0.1s ease-in;
+}
+button#music:hover{
+  background-color: rgba(83, 211, 158, 1);
+  transform: scale(1.05);
+  transition: 0.1s ease-in;
+}
+
+
 
 .playpause-track,
 .prev-track,
