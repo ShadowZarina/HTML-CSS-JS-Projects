@@ -1,141 +1,130 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-}
+/* Body */
 
 body {
-  min-height: 100vh; 
-  background-image: linear-gradient(135deg, #F7D9D7 10%, #C3DEB6 90%);   
-      
-  text-align: center;
-    
-  display: flex; 
-  flex-direction: column;
-  justify-content: space-between;
+  margin: 0;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  height: 100vh;background-color: hsl(0,0,95%);
+  background-image: linear-gradient(135deg, #F7D9D7 10%, #C3DEB6 90%);   
 }
-  
-.calculator-container {
-  gap: 10px; 
-    
-  height: 550px;
-  width: 375px; 
-    
+
+/* Calculator */
+
+#calculator-border {
+  display: inline-block;
+  background-color: #dd9393;  
+  border-radius: 20px;
+  padding: 20px;
+}
+
+#calculator {
+  font-family: "Roboto", sans-serif;
   background-color: #FAF9F0;
-  border-radius: 25px;
-    
-  margin: auto; 
-  padding: 15px; 
-}
-  
-
-.button-row {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+  border-radius: 15px;
+  max-width: 500px;
+  overflow: hidden;
 }
 
-.button-row:first-child {
-    grid-template-rows: 1fr 1fr 2fr;
-    background-color: #E6C1D2;
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 25px;
 }
 
-.button-row:nth-child(2) {
-  background-color: #F7D9D7;
+
+.top-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr; 
+  align-items: center;            
+  gap: 1rem;                    
 }
 
-.button-row:nth-child(3) {
+/* Rows */
+
+.row1 {
+  background-color: #E6C1D2;
+}
+
+.row2 {
   background-color: #FAE7E3;
 }
 
-.button-row:nth-child(4) {
+.row3 {
   background-color: #C3DEB6;
 }
 
-.button-row:last-child {
-    background-color: #9BCCB5;
+.row4 {
+  background-color: #9BCCB5;
 }
+
+
+/* Display */
+
+#display  {
+  margin: -10px 0px -30px -20px;
+  width: 100%;
+  background-color: #a35c5c;   
+  height: 100px;                
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+  color: white;
+  font-size: 3rem;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+
+/* Buttons*/
 
 button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: none;
   color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #dccae1;
+}
+
+button:active {
+  background-color: #c0d5c9;
+}
+
+.operator-btn {
+  background-color: #9BCCB5; 
+}
+
+.clear-btn {
+  margin: 20px 25px -10px;
+  justify-self: center;        
   border-radius: 50%;
-  cursor: pointer
+  background-color: #d99cb8;   
+  color: white;
+  border: none;
 }
 
-#display {
-  background-color: #F5F4CE;
-  border-radius: 20px;
-  width: 90%;
-  grid-row: 1fr;
+.equal, .zero-btn {
+  background-color: #9BCCB5; 
 }
 
+.plus, .clear-btn{
+    background-color: #e0aecd; 
+}
 
-.number-on-screen {
- font-size: 60px; 
-        text-align: right;
-        color: white;
-        
-        height: 75px; 
-        width: 96%; /* need to set width, otherwise will spill */
-        
-  
-        background-color: black;
-        border-radius: 10px;
-        border: none;  /* change red to check */ 
-    
-        
-      }
-  
-  
-  
+.minus {
+    background-color: #f4dcdb; 
+}
 
-  
-    .pad-button {
-      border-radius: 100px; /* rounding the buttons */ 
-      
-      font-size: 40px; 
-      color: #e6e6e6; 
-      background-color: #3c4043; 
-      
-      cursor: pointer; /* converts cursor to hand when on the button */
-      
-    }
-    
-      .pad-button:active,
-      .pad-button:hover {
-        color: white;
-        background-color: #242729; /* darken background, highlight text - https://www.w3schools.com/colors/colors_picker.asp */ 
-     
-        cursor: pointer; /* converts cursor to hand when on the button */
-  
-        transition: all .25s;
-        transition-timing-function: ease-in;
-        }
-      
-  
-    .pad-button-color {
-      border-radius: 100px; /* rounding the buttons */ 
-      
-      font-size: 40px; 
-      color: #e6e6e6; 
-      background-color: MediumSeaGreen; 
-      
-      cursor: pointer; /* converts cursor to hand when on the button */
-      
-    }
-  
-      .pad-button-color:active,
-      .pad-button-color:hover {
-        color: white; 
-        background-color: #20603d; /* darken background, highlight text - https://www.w3schools.com/colors/colors_picker.asp */ 
-        
-        transition: all .25s;
-        transition-timing-function: ease-in;
-  
-      }
-  
-      #pad-button-equal-sign {
-        grid-column: 4; 
-      }
-
+.times {
+    background-color: #a8d396; 
+}
