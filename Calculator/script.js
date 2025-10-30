@@ -1,116 +1,214 @@
-const number = document.getElementsByClassName("number");
-const operation = document.getElementsByClassName("operation");
-const buttons = document.querySelectorAll("button[data-operator]");
+/* Display and Buttons */
 const display = document.getElementById("display");
+const clear = document.querySelector(".clear");
+const equal = document.querySelector(".equal");
+const decimal = document.querySelector(".decimal");
 
-display.textContent = "";
-display.style.color = "white";
+let numbers = document.querySelectorAll(".number");
+let operators = document.querySelectorAll(".operator-btn");
 
-https://www.w3schools.com/js/js_htmldom_document.asp
+/* Screens, Number, Operator Values */
+let previousScreen = document.querySelector(".previous");
+let currentScreen = document.querySelector(".current");
 
-display.removeChild(text)
-display.appendChild(text)
+let currentNum = "";
+let previousNum = "";
+let operator = "";
 
-document.getElementById(id).onclick = function(){code}
+const currentDisplayNumber = document.querySelector(".currentNumber");
+const previousDisplayNumber = document.querySelector(".previousNumber");
 
+/* Append to Display */
 
-/* TO-DO
-- display error message when dividing by 0
-- disable typing 0 on its own unless a decimal point is used
-- When a result is displayed, pressing a new digit should clear the result 
-and start a new calculation instead of appending the digit to the existing result.
-- disable consecutive button presses
-- make sure operation runs ONLY AFTER PRESSING EQUAL 
-*/
-
-/*
-element.innerHTML =  new html 
-element.attribute = new value	
-element.style.property = new style
-
-let currentNumber;
-
-number.addEventListener('click', () => {
-  // Get the value from the 'value' attribute
-  currentNumber += digit;
-  const buttonValueString = myButton.value;
-  // Convert the string to an integer
-  const buttonNumber = parseInt(buttonValueString);
-
-  console.log("Button 1 value as number:", buttonNumber);
-});
-
-// Add an event listener to the second button
-anotherButton.addEventListener('click', () => {
-  // Get the value from the 'data-number' attribute
-  const dataNumberString = anotherButton.dataset.number;
-  // Convert the string to an integer
-  const dataNumber = parseInt(dataNumberString);
-
-  console.log("Button 2 data-number as number:", dataNumber);
-});
-
-*/
-
-
-// OPERATORS
-
-let operator = null;
-
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    operator = button.getAttribute("data-operator");
-    console.log("Selected operator:", operator);
-
-    // Now you can call your operate function
-    operate(operator, a, b);
-
+if (numbers && numbers.length) {
+  numbers.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      handleNumber(e.target.textContent.trim());
+    });
   });
-});
+}
 
-function operate(operator, a,b) {
-  switch (operator) {
-    case "+":
-      return add(a, b);
-    case "-":
-      return subtract(a, b);
-    case "*":
-      return multiply(a, b);
-    case "/":
-      return divide(a, b);
-    default:
-      return "Error: Invalid operator";
+
+function handleNumber(number) {
+  if (currentNum.length <= 6) {          
+    currentNum += number;             
+    currentDisplayNumber.textContent = currentNum; 
   }
 }
 
-/*
+/* Clear Button */
+if (clear) {
+  clear.addEventListener("click", clearEntry);
+}
 
-2. JavaScript concepts you’ll use
+function clearEntry() {
+  if (display && typeof display.value !== "undefined") display.value = "";
+    currentNum = "";
+    previousNum = "";
+    operator = "";
+    if (currentDisplayNumber) currentDisplayNumber.textContent = "";
+    if (previousDisplayNumber) previousDisplayNumber.textContent = "";
+}
 
-getAttribute("data-number") or innerText → grab the actual digit that was clicked.
+/* Decimal */
+if (decimal) {
+  decimal.addEventListener("click", () => {
+    addDecimal();
+  });
+}
 
-String concatenation (currentValue += digit) → so that pressing 1 then 2 gives "12".
+/* Equal Button */
+if (equal) {
+  equal.addEventListener("click", () => {
+    if (currentNum !== "" && previousNum !== "") {
+      compute();
+    }
+  });
+}
 
-parseInt() or parseFloat() → to convert the string into a real number when you’re ready to calculate.
+/* Operate Function */
 
-3. Variables you’ll need
-currentNumber → what the user is typing right now.
+if (operators && operators.length) {
+  operators.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      // get operator text (like "+", "-", "x", "÷") - trim in case of white space
+      const op = e.target.textContent.trim();
+      handleOperator(op);
+    });
+  });
+}
 
-firstOperand and secondOperand → store values for calculation.
+function handleOperator(op) {
+  if (previousNum === "") {
+    previousNum = currentNum;
+    operatorCheck(op);
+  } else if (currentNum === "") {
+    operatorCheck(op);
+  } else {
+    compute();
+    operator = op;
+    currentDisplayNumber.textContent = "0";
+    previousDisplayNumber.textContent = previousNum + " " + operator;
+  }
+}
 
-operator → what you already set up with operator buttons.
+function operatorCheck(text) {
+  operator = text;
+  if (previousDisplayNumber) previousDisplayNumber.textContent = previousNum + " " + operator;
+  if (currentDisplayNumber) currentDisplayNumber.textContent = "0";
+  currentNum = "";
+}
 
-4. Extra touches
-Update the screen → use something like element.textContent = currentNumber to display what’s being typed.
+/* ROUND OFF LONG DECIMALS */
 
-Clear button → reset variables back to empty strings/numbers.
-*/
+function roundNumber(num) {
+  return Math.round(num * 100000) / 100000;
+}
 
-clearButton.addEventListener('click', () => {
-  display.textContent = '';
-});
+/* Functions for Addition, Subtraction, Multiplication, Division */
 
-backButton.addEventListener('click', () => {
-  currentNumber = currentNumber.slice(1);
-  display.textContent = currentNumber;
-});
+/* Addition */
+
+function addDecimal() {
+  if (!currentNum.includes(".")) {
+    if (currentNum === "") currentNum = "0";
+    currentNum += ".";
+    currentDisplayNumber.textContent = currentNum;
+  }
+}
+
+/* Display Results */
+
+function displayResults() {
+  if (previousNum.length <= 5) {
+    currentDisplayNumber.textContent = previousNum;
+  } else {
+    currentDisplayNumber.textContent = previousNum.slice(0, 11) + "...";
+  }
+  if (previousDisplayNumber) previousDisplayNumber.textContent = "";
+  operator = "";
+  currentNum = "";
+}
+
+/* Keyboard Presses */
+window.addEventListener("keydown", handleKeyPress);
+function handleKeyPress(e) {
+  if (
+    (e.key >= "0" && e.key <= "9") ||
+    e.key === "Enter" ||
+    e.key === "=" ||
+    e.key === "+" ||
+    e.key === "-" ||
+    e.key === "/" ||
+    e.key === "*" ||
+    e.key === "." ||
+    e.key === "Backspace"
+  ) {
+    e.preventDefault();
+  }
+
+  if (e.key >= "0" && e.key <= "9") {
+    handleNumber(e.key);
+  }
+  if (e.key === "Enter" || (e.key === "=" && currentNum !== "" && previousNum !== "")) {
+    compute();
+  }
+  if (e.key === "+" || e.key === "-" || e.key === "/") {
+    handleOperator(e.key);
+  }
+  if (e.key === "*") {
+    handleOperator("*"); 
+  }
+  if (e.key === ".") {
+    addDecimal();
+  }
+  if (e.key === "Backspace") {
+    handleDelete();
+  }
+}
+
+/* COMPUTE FUNCTION */
+
+function compute() {
+  let result;
+
+  const prev = parseFloat(previousNum);
+  const curr = parseFloat(currentNum);
+
+  if (isNaN(prev) || isNaN(curr)) return; 
+
+  switch (operator) {
+    case "+":
+      result = prev + curr;
+      break;
+    case "-":
+      result = prev - curr;
+      break;
+    case "x":
+    case "*":
+      result = prev * curr;
+      break;
+    case "÷":
+    case "/":
+      if (curr === 0) {
+        currentDisplayNumber.textContent = "Error";
+        previousDisplayNumber.textContent = "";
+        currentNum = "";
+        previousNum = "";
+        operator = "";
+        return;
+      }
+      result = prev / curr;
+      break;
+    default:
+      return;
+  }
+
+  result = roundNumber(result);
+
+  previousNum = result.toString();
+  currentNum = "";
+  operator = "";
+
+  displayResults();
+}
