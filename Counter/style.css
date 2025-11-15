@@ -24,3 +24,24 @@ shape {
 }
 
 /* Shape Spawning and Despawning Animations */
+
+@keyframes pop-in-fade {
+  0% {
+    opacity: 0;
+    transform: scale(0.5); /* Starts smaller */
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.1); /* Slightly larger than final size for a "pop" */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Final size */
+  }
+}
+
+.my-element {
+  animation: pop-in-fade 0.8s ease-out forwards;
+}
+
+/* Apply class to shape to trigger keyframes? OR use JS instead */
