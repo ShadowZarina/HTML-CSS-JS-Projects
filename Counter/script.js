@@ -1,18 +1,11 @@
-const text = document.getElementById("text-element");
+const button = document.querySelector("button");
+const display = document.getElementById("counter");
 
-const textArray = [
-            "Sharing your code with the world!",
-            "Creating another repository!",
-            "Pushing a new commit!",
-            "Generating a fresh experience for you!"
-        ];
-        let currentIndex = 0;
+let count = 0;
 
-        function changeText() {
-            text-element.textContent = textArray[currentIndex];
-            currentIndex = (currentIndex + 1) % textArray.length;
-        }
+function changeCount() {
+    count++;
+    display.innerHTML = count;
+}
 
-        changeText(); 
 
-        setInterval(changeText, 3000); 
