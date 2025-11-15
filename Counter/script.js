@@ -8,4 +8,6 @@ function changeCount() {
     display.innerHTML = count;
 }
 
-
+button.addEventListener('click', function() {
+    changeCount();
+});
