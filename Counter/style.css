@@ -10,32 +10,17 @@ body {
   min-height: 100vh;
 }
 
-.loading {  
-  max-width: 50%;  
-  line-height: 1.4;  
-  font-size: 1.2rem;  
-  font-weight: bold;  
-  text-align: center;
+button {
+    border: 0;
+    padding: 20px;
+    color: white;
+    background-color: yellow;
 }
 
-.loading__author {  
-  font-weight: normal;  
-  font-size: 0.9rem;  
-  color: rgba(189,189,189 ,1);  
-  margin: 0.6rem 0 2rem 0;  
-  display: block;
+shape {
+    width: 50px; 
+    aspect-ratio: 1;
+    clip-path: polygon(100% 50%,78.98% 57.76%,93.3% 75%,71.21% 71.21%,75% 93.3%,57.76% 78.98%,50% 100%,42.24% 78.98%,25% 93.3%,28.79% 71.21%,6.7% 75%,21.02% 57.76%,0% 50%,21.02% 42.24%,6.7% 25%,28.79% 28.79%,25% 6.7%,42.24% 21.02%,50% 0%,57.76% 21.02%,75% 6.7%,71.21% 28.79%,93.3% 25%,78.98% 42.24%);
 }
 
-.loading__anim {   
-  width: 35px;   
-  height: 35px;   
-  display: inline-block;  
-  border-left-color: rgba(3,155,229 ,1);  
-  border-top-color: rgba(3,155,229 ,1);  
-  border-radius: 50%:
-  animation: rotate 600ms infinite linear;
-}
-
-@keyframes rotate { 
-  to {  transform: rotate(1turn) }
-}
+/* Shape Spawning and Despawning Animations */
