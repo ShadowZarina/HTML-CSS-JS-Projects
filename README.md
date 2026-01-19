@@ -10,6 +10,3 @@ A collection of front-end websites and client-side applications created using HT
 
 ## The Odin Project
 - Separate all TOP projects into own repositories
-
-## CS50
-- Create HTML Landing Page (CS50)
