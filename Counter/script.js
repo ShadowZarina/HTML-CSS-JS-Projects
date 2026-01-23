@@ -1,6 +1,7 @@
 /* Variable Initialization */
 
 const button = document.querySelector("button");
+const addButton = document.getElementsByClassName("add-button");
 const display = document.getElementById("counter");
 const shape = document.querySelectorAll(".shape");
 
@@ -22,5 +23,6 @@ button.addEventListener('click', function() {
 shape.addEventListener('click', function() {
     changeCount();
 });
+
 
 /* Function for Shape Despawning */
