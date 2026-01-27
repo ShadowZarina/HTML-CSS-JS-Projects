@@ -1,47 +1,43 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+// Find a font for this
 }
 
-body {  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  min-height: 100vh;
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-button {
-    border: 0;
+/* Upper center section */
+.controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Counter section below */
+.counters {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.counter-box {
     padding: 20px;
-    color: white;
-    background-color: yellow;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
 }
 
-shape {
-    width: 50px; 
-    aspect-ratio: 1;
-    clip-path: polygon(100% 50%,78.98% 57.76%,93.3% 75%,71.21% 71.21%,75% 93.3%,57.76% 78.98%,50% 100%,42.24% 78.98%,25% 93.3%,28.79% 71.21%,6.7% 75%,21.02% 57.76%,0% 50%,21.02% 42.24%,6.7% 25%,28.79% 28.79%,25% 6.7%,42.24% 21.02%,50% 0%,57.76% 21.02%,75% 6.7%,71.21% 28.79%,93.3% 25%,78.98% 42.24%);
+.counter {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
-
-/* Shape Spawning and Despawning Animations */
-
-@keyframes pop-in-fade {
-  0% {
-    opacity: 0;
-    transform: scale(0.5); /* Starts smaller */
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.1); /* Slightly larger than final size for a "pop" */
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1); /* Final size */
-  }
-}
-
-.my-element {
-  animation: pop-in-fade 0.8s ease-out forwards;
-}
-
-/* Apply class to shape to trigger keyframes? OR use JS instead */
