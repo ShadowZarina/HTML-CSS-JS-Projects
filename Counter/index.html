@@ -8,16 +8,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Time Counter!</h1>
-    <div id="counter"></div>
-    <button>Click me!</button>
-    <button>Click me to add another counter!</button>
-    <!-- 
-    Start with one button. Create section in side where more counters can be added.
-    Make number display that shows the count (div).
-    -->
+    <div class="app-container">
+
+        <!-- Upper center section -->
+        <div class="controls">
+            <h1>Time Counter!</h1>
+            <button id="add-counter-btn">Click me to add another counter!</button>
+        </div>
+
+        <!-- Counters appear here -->
+        <div class="counters">
+            <div class="counter-box">
+                <div class="counter" id="counter">0</div>
+                <button>Click me!</button>
+            </div>
+        </div>
+
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
