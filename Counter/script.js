@@ -1,39 +1,37 @@
-const addCounterBtn = document.getElementById("addCounterBtn");
-const counterContainer = document.getElementById("counterContainer");
+// Select elements
+const countersContainer = document.querySelector(".counters");
+const addCounterBtn = document.getElementById("add-counter-btn");
 
-addCounterBtn.addEventListener("click", () => {
-    // Create counter wrapper
-    const counterDiv = document.createElement("div");
-    counterDiv.classList.add("counter");
-
-    // Counter value
+// Function to create a new counter
+function createCounter() {
     let count = 0;
 
-    // Display
-    const display = document.createElement("span");
-    display.textContent = count;
-    display.classList.add("counter-display");
+    // Counter box
+    const counterBox = document.createElement("div");
+    counterBox.classList.add("counter-box");
+
+    // Counter display
+    const counterDisplay = document.createElement("div");
+    counterDisplay.classList.add("counter");
+    counterDisplay.textContent = count;
 
     // Increment button
-    const incBtn = document.createElement("button");
-    incBtn.textContent = "+";
-    incBtn.addEventListener("click", () => {
+    const incrementBtn = document.createElement("button");
+    incrementBtn.textContent = "Click me!";
+
+    // Button functionality
+    incrementBtn.addEventListener("click", () => {
         count++;
-        display.textContent = count;
+        counterDisplay.textContent = count;
     });
 
-    // Decrement button
-    const decBtn = document.createElement("button");
-    decBtn.textContent = "−";
-    decBtn.addEventListener("click", () => {
-        count--;
-        display.textContent = count;
-    });
+    // Assemble counter box
+    counterBox.appendChild(counterDisplay);
+    counterBox.appendChild(incrementBtn);
 
-    // Append everything
-    counterDiv.appendChild(decBtn);
-    counterDiv.appendChild(display);
-    counterDiv.appendChild(incBtn);
+    // Add to page
+    countersContainer.appendChild(counterBox);
+}
 
-    counterContainer.appendChild(counterDiv);
-});
+// Add counter button
+addCounterBtn.addEventListener("click", createCounter);
