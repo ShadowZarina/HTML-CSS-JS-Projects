@@ -352,3 +352,18 @@ function stopTime() {
   if (!isPlaying) playTrack();
   else pauseTrack();
 }
+
+
+const backgroundContainer = document.getElementById('background-container');
+const changeButton = document.getElementById('change-button');
+
+const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Array of image URLs
+let currentIndex = 0;
+
+changeButton.addEventListener('click', function() {
+    // Increment the index and loop back to the start if necessary
+    currentIndex = (currentIndex + 1) % images.length;
+    
+    // Directly change the background-image style property
+    backgroundContainer.style.backgroundImage = `url('${images[currentIndex]}')`;
+});
