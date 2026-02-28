@@ -5,7 +5,15 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: pink;
+}
 
+.container {
+  border-radius: 1em;
+  background-color: white;
+}
+  
 ul {
   margin: 0;
   padding: 0;
